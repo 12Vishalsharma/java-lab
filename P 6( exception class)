@@ -1,0 +1,59 @@
+import java.util.Scanner;  
+  
+   
+class InvalidAge extends Exception    
+{    
+   
+    public InvalidAge (String message)    
+    {    
+         
+        super(message);    
+    }    
+}    
+   
+    
+public class CustomExceptionExample1    
+{    
+  
+      
+    static void checkEligibility (int age) throws InvalidAge 
+    {      
+        
+        if(age < 20){    
+               
+            throw new InvalidAge(" not eligible .");   
+        }else {     
+            System.out.println(" eligible for the exam.");     
+        }        
+    }      
+  
+       
+    public static void main(String args[])    
+    {    
+          
+        Scanner scan = new Scanner(System.in);  
+                  
+         
+        int age;  
+              
+         
+        System.out.println("Please enter your age:");  
+        age = scan.nextInt();  
+          
+        scan.close();  
+          
+        try    
+        {    
+            checkEligibility(age);    
+        }    
+        catch (InvalidAge exception)    
+        {    
+            System.out.println(" found an excaption:");    
+   
+            System.out.println(exception);  
+              
+        }         
+    }       
+}    
+
+
